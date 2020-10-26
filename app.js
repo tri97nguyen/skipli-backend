@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var firebase = require('firebase');
+// firebase setup
+var firebaseConfig = require('./config').firebaseConfig
+firebase.initializeApp(firebaseConfig);
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var messageRouter = require('./routes/message');
@@ -12,6 +15,8 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+
 
 app.use(logger('dev'));
 app.use(express.json());
